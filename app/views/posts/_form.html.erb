@@ -20,14 +20,13 @@
     <div class="controls">
       <%= f.text_area :body, rows: 8 %>
     </div>
-    <div class="control-group">
-    <%= image_tag(current_user.avatar.small.url) if current_user.avatar? %>
-    <%= f.label :avatar, class: 'control-label' %>
-    <div class="controls"> 
-      <%= f.file_field :avatar %>
+    <% end %>  
+    <%= control_group_tag(post.errors[:images]) do %>
+    <%= f.label :images, class: 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :images %>
     </div>
-  </div>
-  <% end %>
+    <% end %>
   <div class="control-group">
     <div class="controls">
       <%= f.submit "Save", class: 'btn' %>
