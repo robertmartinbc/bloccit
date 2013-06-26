@@ -6,6 +6,8 @@
 
 # Ignore bundler config
 
+public/uploads
+
 config/initializers/setup_mail.rb
 
 /.bundle
