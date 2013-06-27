@@ -11,14 +11,14 @@ rand(4..10).times do
 
   # Create 15 topics
 topics = []
-15.times do
+35.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "), 
     description: Faker::Lorem.paragraph(rand(1..4))
   )
 end
 
-  rand(5..12).times do
+  rand(5..120).times do
     topic = topics.first
     p = u.posts.create(
       topic: topic,
@@ -29,7 +29,7 @@ end
 
     topics.rotate!
 
-    rand(3..7).times do
+    rand(3..70).times do
       p.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
     end
