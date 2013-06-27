@@ -4,7 +4,8 @@ rand(4..10).times do
     name: Faker::Name.name, 
     email: Faker::Internet.email, 
     password: password, 
-    password_confirmation: password)
+    password_confirmation: password,
+    avatar: "Me.jpg")
   u.skip_confirmation!
   u.save
 
