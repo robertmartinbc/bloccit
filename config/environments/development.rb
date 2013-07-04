@@ -38,6 +38,7 @@ Bloccit::Application.configure do
   config.action_mailer.default_url_options = { :host => 'bloccit.dev' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   
   # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 end

@@ -4,18 +4,21 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :topic
-  attr_accessible :body, :title, :topic, :images
 
-  after_create :create_vote
-
-  mount_uploader :images, ImageUploader
+  attr_accessible :body, :title, :topic, :images, :image_cache
 
   default_scope order('rank DESC')
+  scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true')}
+ 
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
   validates :user, presence: true  
+
+  after_create :create_vote
+
+  mount_uploader :images, ImageUploader
 
   def up_votes
     self.votes.where(value: 1).count
@@ -42,6 +45,4 @@ class Post < ActiveRecord::Base
     user.votes.create(value: 1, post: self)
   end
 
-
-  
 end

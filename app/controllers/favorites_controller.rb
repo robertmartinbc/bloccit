@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
 	def create
 		@topic = Topic.find(params[:topic_id])
 		@post = @topic.posts.find(params[:post_id])
+		
 		authorize! :create, Favorite, message: "You cannot do that."
 		if current_user.favorites.create(post: @post)
 			flash[:notice] = "Favorited post."
