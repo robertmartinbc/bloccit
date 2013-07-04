@@ -46,6 +46,14 @@ User.all.each do |user|
 end
 
 u = User.new(
+  name: 'Robert',
+  email: 'robertmartinbc@shaw.ca', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.save
+u.update_attribute(:role, 'admin')
+
+u = User.new(
   name: 'Admin User',
   email: 'admin@example.com', 
   password: 'helloworld', 
