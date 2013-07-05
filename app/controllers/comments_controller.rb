@@ -30,6 +30,7 @@ class CommentsController < ApplicationController
       render 'posts/show'
     end
   end
+  
   def destroy
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])
