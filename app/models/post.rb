@@ -1,13 +1,13 @@
 class Post < ActiveRecord::Base
   mount_uploader :images, ImageUploader
-  
+
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :topic
 
-  attr_accessible :body, :title, :topic, :images, :image_cache
+  attr_accessible :body, :title, :topic, :images
 
   default_scope order('rank DESC')
   scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true')}

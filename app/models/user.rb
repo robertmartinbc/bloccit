@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -7,7 +8,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :avatar_cache 
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
   attr_accessible :provider, :uid, :email_favorites
   # attr_accessible :title, :body
   has_many :posts
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
 
   before_create :set_member
 
-  mount_uploader :avatar, AvatarUploader
+  
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
