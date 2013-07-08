@@ -17,6 +17,7 @@ group :development, :test do
 	gem 'guard'
 	gem 'guard-rspec'
 	gem 'factory_girl_rails', '~> 4.0'
+	gem 'database_cleaner'
 end
 
 gem 'quiet_assets', :group => :development
