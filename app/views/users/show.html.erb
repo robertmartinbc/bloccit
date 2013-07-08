@@ -18,16 +18,16 @@
 <br/>
 
 <div class="row">
-  <div class="tabbable tabs-left">
+  <div class="tabbable">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
       <li><a href="#comments" data-toggle="tab">Comments</a></li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane active" id="posts">
+      <div class="tab-pane.fade active" id="posts">
         <%= render @posts %>
       </div>
-      <div class="tab-pane" id="comments">
+      <div class="tab-pane.fade" id="comments">
         <%= render @user.comments, locals: { post: @post, topic: @topic} %>
       </div>
     </div>
