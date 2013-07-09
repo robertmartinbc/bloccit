@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js
   def index
   end
 
@@ -37,12 +38,13 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     authorize! :destroy, @comment, message: "You need to to own the comment to delete it."
     if @comment.destroy
-      flash[:notice] = "Comment was removed."
-      redirect_to [@topic, @post]
+      flash[:notice] = "Comment was removed."      
     else
-      flash[:error] = "Comment could not be deleted. Try again."
-      redirect_to [@topic, @post]
+      flash[:error] = "Comment could not be deleted. Try again."      
     end
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
   end
+end
 end
 
