@@ -22,13 +22,36 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
       <li><a href="#comments" data-toggle="tab">Comments</a></li>
+      <li><a href="#assignments" data-toggle="tab">Assignments</a></li>
+      <li><a href="#account" data-toggle="tab">Account</a></li>
+      <li><a href="#add_funds" data-toggle="tab">Add funds</a></li>
+      <li><a href="#feedback" data-toggle="tab">Feedback</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="posts">
+        <h4>Here is a list of your posts.</h4>
+        <hr>
         <%= render @posts %>
       </div>
       <div class="tab-pane" id="comments">
+        <h4>Here is a list of your comments.</h4>
         <%= render @user.comments, locals: { post: @post, topic: @topic} %>
+      </div>
+      <div class="tab-pane" id="assignments">
+        <h4>Here is a list of your assignments.</h4>
+        
+      </div>
+      <div class="tab-pane" id="account">
+        <h4>Account Details</h4>
+        
+      </div>
+      <div class="tab-pane" id="add_funds">
+        <h4>Please select a payment method.</h4>
+        
+      </div>
+      <div class="tab-pane" id="feedback">
+        <h4>Here is a list feedback on your work</h4>
+        
       </div>
     </div>
   </div>
