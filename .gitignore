@@ -8,8 +8,6 @@
 
 public/uploads
 
-config/initializers/setup_mail.rb
-
 /.bundle
 
 # Ignore the default SQLite database.
